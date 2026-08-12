@@ -5,10 +5,21 @@ export function formatCurrencyMask(value: string): string {
     return ''
   }
 
-  const number = parseInt(digits, 10) / 100
+  const number = Number(digits) / 100
+
+  if (isNaN(number)) {
+    return ''
+  }
 
   return number.toLocaleString('pt-BR', {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   })
+}
+
+export function parseCurrency(value: string): number {
+  return (
+    parseFloat(value.replace(/\./g, '').replace(',', '.').replace('R$', '')) ||
+    0
+  )
 }
