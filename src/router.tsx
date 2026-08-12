@@ -1,5 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom'
 
+import { SimulationFormPage } from '@/pages/SimulationFormPage'
+
 import { RootLayout } from './components/layout/RootLayout'
 
 export const router = createBrowserRouter([
@@ -8,7 +10,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <h1>Formulário de Simulação</h1>,
+        element: <SimulationFormPage />,
       },
       {
         path: '/resultado',
