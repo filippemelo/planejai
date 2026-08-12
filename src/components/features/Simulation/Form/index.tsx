@@ -32,7 +32,13 @@ export const SimulationForm = () => {
         currentStep={currentStepIndex + 1}
         totalSteps={totalSteps}
       />
-      <FormStep key={currentStep.id} {...currentStep} />
+      <FormStep
+        {...currentStep}
+        key={currentStep.id}
+        hideBackButton={currentStepIndex === 0}
+        onBack={handlePreviousStep}
+        onNext={handleNextStep}
+      />
     </>
   )
 }
